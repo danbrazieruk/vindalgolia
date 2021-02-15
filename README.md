@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Steps
+- [x] Choose a dataset
+- [x] Create an Algolia account
+- [x] Configure basic relevance settings
+- [x] Build out basic search
+- [x] Add code to public GitHub repo
+- [x] Give Algolia admins access
+- [x] Write up
 
-## Getting Started
+## Summary
+Having decided that the selection of datasets was random rather than a psychometric evaluation in its own right, I decided to build out a simple search based on the wine dataset.
 
-First, run the development server:
+Very recently I mentored a designer-friend through the interview process with a large wine retailer, so with that in mind I felt that a UX akin to their “wine selector” with the ability to filter products would be a fun project.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Whilst this task was clearly a method for Algolia to gauge my ability to learn new tools, solve problems and adapt to a challenge, I also found this a great introduction to the product and really enjoyed reading through the documentation and getting a feel for the customer onboarding experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Retrospective
+I particularly enjoyed the InstantSearch libraries and found they were a great way to very quickly get a great depth of functionality that without a tool like Algolia would have likely taken an order of magnitude longer to build.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+During my first meeting with Michael and Matthew we spoke about `next.js` so I decided to give that a little more time. I ran in to some issues deploying to Vercel that seemed related to case-sensitivity, so I spent a little time working around that and getting the app deployed.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+With more time I’d have polish the front-end further, ensuring containers were more solid and building in more responsiveness. Additionally I’d like to explore more of the `refinementlist` library. Grabbing the data from Algolia seemed trivial compared with the time required to implement price sliders etc. so I definitely had to focus my time to get something “robust enough” submitted!
