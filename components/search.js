@@ -49,7 +49,7 @@ const Header = () => (
       </p>
 
       <SearchBox
-          className="search-bar"
+          className=""
           translations={{ placeholder: 'Search Wines' }}
       />
     </header>
@@ -126,48 +126,53 @@ const Content = () => (
 
     {/* Results */}
     <div className="container container--results">
+      <div class="container--options">
+        <SortBy
+          className="container-option"
+          defaultRefinement="bordeaux"
+          items={[
+            {
+              label: 'Featured',
+              value: 'bordeaux',
+            },
+            {
+              label: 'Price (high to low)',
+              value: 'price-desc',
+            },
+            {
+              label: 'Price (low to high))',
+              value: 'price-asc',
+            },
+            {
+              label: 'Year (high to low)',
+              value: 'year-desc',
+            },
+            {
+              label: 'Year (low to high))',
+              value: 'year-asc',
+            },
+          ]}
+        />
 
-      <SortBy
-        className="container-option"
-        defaultRefinement="price-desc"
-        items={[
-          {
-            label: 'Price (low to high))',
-            value: 'price-asc',
-          },
-          {
-            label: 'Price (high to low)',
-            value: 'price-desc',
-          },
-          {
-            label: 'Year (low to high))',
-            value: 'year-asc',
-          },
-          {
-            label: 'Year (high to low)',
-            value: 'year-desc',
-          },
-        ]}
-      />
-
-      <HitsPerPage
-        className="container-option"
-        items={[
-          {
-            label: '12 items per page',
-            value: 12,
-          },
-          {
-            label: '18 items per page',
-            value: 18,
-          },
-          {
-            label: '24 items per page',
-            value: 24,
-          },
-        ]}
-        defaultRefinement={12}
-      />
+        <HitsPerPage
+          className="container-option"
+          items={[
+            {
+              label: '12 items per page',
+              value: 12,
+            },
+            {
+              label: '18 items per page',
+              value: 18,
+            },
+            {
+              label: '24 items per page',
+              value: 24,
+            },
+          ]}
+          defaultRefinement={12}
+        />
+      </div>
 
       <Hits hitComponent = {Hit} />
 

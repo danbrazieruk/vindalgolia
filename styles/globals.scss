@@ -1,4 +1,10 @@
 $red-dark: #b71540;
+$grey:     #eaeaea;
+$white:    #ffffff;
+
+
+
+$searchbox-height: 70px;
 
 
 html, body {
@@ -51,7 +57,7 @@ a {
 .footer {
   width: 100%;
   height: 100px;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid $grey;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,12 +84,27 @@ a {
 
 /* Header */
 .header{
+  position: relative;
     padding: 4em 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     background-color: $red-dark;
     min-height: 20vh;
+    background-image: url('../public/wine.jpeg');
+    background-size: cover;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparentize($red-dark, 0.3);
+      z-index: -1;
+    }
 }
 
 .title {
@@ -91,48 +112,67 @@ a {
   line-height: 1.15;
   font-size: 4rem;
   text-align: center;
-  color: #ffffff;
+  color: $white;
 }
 
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
   text-align: center;
-  color: #ffffff;
+  color: $white;
 }
 
 
 /* Search */
-.search-bar {
-    display: flex;
-    justify-content: center;
-    width: 100%
-}
+.ais-SearchBox {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: $searchbox-height;
+  width: 100%;
 
-.input {
-    min-width: 500px;
+  .ais-SearchBox-input {
     border: none;
-    border-radius: .5em;
-    padding: 15px
+    border-radius: .5rem;
+    padding: 1rem 1rem 1rem ($searchbox-height / 2);
+  }
 
+  .ais-SearchBox-submit {
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: $searchbox-height / 2;
+    height: $searchbox-height;
+    color: $red-dark;
+    border: none;
+    background: none;
+  }
+
+  .ais-SearchBox-reset {
+    display: none;
+  }
 }
 
-.ais-SearchBox-submit {
-    width: 100px;
-    padding: 15px;
-    color: #c4c4c4
+
+.ais-SearchBox-form {
+  position: relative;
 }
 
-.ais-SearchBox-reset {
-    display: none
-}
 
+/* Content */
+.container--options {
+
+}
 
 /* Hits */
 .ais-Hits-list {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  border-top: 1px solid $grey;
 }
 
 .ais-Hits-item {
