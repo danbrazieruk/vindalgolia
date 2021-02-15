@@ -110,11 +110,12 @@ const Content = () => (
         />
       </div>
 
-      <div className="">
+      <div className="region-filter">
         <Panel className="small uppercase letter-spacing" header="Region">
           <RefinementList
             attribute="domain"
             searchable={true}
+            showMore ={true}
             translations={{
               placeholder: 'Search Regions…',
             }}
