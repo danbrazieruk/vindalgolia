@@ -176,12 +176,18 @@ a {
   }
 
   .ais-Panel-body {
-    .ais-SearchBox-input {
-      background: $grey;
-    }
+    .ais-SearchBox-form {
+      width: 100%;
 
+      .ais-SearchBox-input {
+        background: $grey;
+        width: 100%;
+      }
+    }
+    
     .ais-RefinementList-list {
       list-style: none;
+      padding: 0;
     }
   }
 }

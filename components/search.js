@@ -117,7 +117,7 @@ const Content = () => (
             searchable={true}
             showMore ={true}
             translations={{
-              placeholder: 'Search Regions…',
+              placeholder: 'Search Regions',
             }}
           />
         </Panel>
