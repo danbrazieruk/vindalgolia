@@ -11,7 +11,6 @@ import {
   Configure,
   SortBy,
 } from 'react-instantsearch-dom';
-import styles from '../styles/Home.module.css'
 
 
 const searchClient = algoliasearch(
@@ -30,7 +29,6 @@ function Search() {
 
             <Content/>
 
-
         </InstantSearch >
     );
 };
@@ -38,13 +36,13 @@ function Search() {
 
 {/* Header */}
 const Header = () => (
-    <header className="header">
+    <header>
 
-      <h1 className={styles.title}>
+      <h1 className="title">
         Vin d'Algolia
       </h1>
 
-      <p className={styles.description}>
+      <p className="description">
         Wine without the whine.
       </p>
 
@@ -58,43 +56,75 @@ const Header = () => (
 
 {/* Hit */}
 const Hit = ({ hit }) => (
-    <a href={"/"} >
-        <div className="card">
-            <div className="card-image">
-                <img src={hit.image} alt={hit.name} className="image"/>
-            </div>
-            <div className="card-contents">
+  <div className="card">
 
-                <Highlight attribute="name" hit={hit} className="card-title" />
-                <Highlight attribute="year" hit={hit}  className="card-year"/>
-                <div className="card-rating">Rating: {hit.quality}</div>
-                <div className="card-type">Rating: {hit.type}</div>
-            </div>
-        </div>
-    </a>
+    <div className="card-image">
+        <img src={hit.image} alt={hit.name} className="image"/>
+    </div>
+
+    <div className="card-contents">
+        <Highlight attribute="name" hit={hit} className="card-title" /> &nbsp;
+        <Highlight attribute="year" hit={hit}  className="card-year"/>
+        <div className="card-rating">Rating: {hit.quality}</div>
+        <div className="card-type">Type: {hit.type}</div>
+    </div>
+  </div>
 );
 
 
 {/* Content */}
 const Content = () => (
-    <main className={styles.main}>
-        <div className="information">
-            <div className="">
-
-                <SortBy defaultRefinement="quality"
-                    items={[
-                        { value: 'quality', label: 'Most Relevant' },
-                    ]}
-                />
-
-            </div>
-        </div>
-
+    <main className="main">
+      <div className="container">
         <Hits hitComponent = {Hit} />
+      </div>
 
-        <div>
-          <Pagination/>
-        </div>
+      <Pagination
+              padding={2}
+              showFirst={false}
+              showLast={false}
+              translations={{
+                previous: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                  >
+                    <g
+                      fill="none"
+                      fillRule="evenodd"
+                      stroke="#000"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.143"
+                    >
+                      <path d="M9 5H1M5 9L1 5l4-4" />
+                    </g>
+                  </svg>
+                ),
+                next: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                  >
+                    <g
+                      fill="none"
+                      fillRule="evenodd"
+                      stroke="#000"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.143"
+                    >
+                      <path d="M1 5h8M5 9l4-4-4-4" />
+                    </g>
+                  </svg>
+                ),
+              }}
+            />
+
     </main>
 );
 
