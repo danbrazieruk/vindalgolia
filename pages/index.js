@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Search from '../components/Search.js'
+import Search from '../components/Search'
 import algoliasearch from 'algoliasearch/lite'
 import { withInstantSearch } from "next-instantsearch";
 import {
