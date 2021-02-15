@@ -1,5 +1,7 @@
-## Project Link
+## Deliverables
 I have deployed the project to [Vercel](https://vindalgolia-38s5v7alq.vercel.app/).
+
+Please find questions / answers [here](https://github.com/danbrazieruk/vindalgolia/blob/master/questions.md).
 
 ## Steps
 - [x] Choose a dataset
