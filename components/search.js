@@ -3,6 +3,7 @@ import algoliasearch from 'algoliasearch/lite'
 import {
   InstantSearch,
   Hits,
+  HitsPerPage,
   SearchBox,
   Pagination,
   Highlight,
@@ -36,14 +37,14 @@ function Search() {
 
 {/* Header */}
 const Header = () => (
-    <header>
+    <header className="header">
 
       <h1 className="title">
         Vin d'Algolia
       </h1>
 
       <p className="description">
-        Wine without the whine.
+        Find wine sans whine.
       </p>
 
       <SearchBox
@@ -62,11 +63,12 @@ const Hit = ({ hit }) => (
         <img src={hit.image} alt={hit.name} className="image"/>
     </div>
 
-    <div className="card-contents">
-        <Highlight attribute="name" hit={hit} className="card-title" /> &nbsp;
-        <Highlight attribute="year" hit={hit}  className="card-year"/>
+    <div className="card-body">
+        <p className="small uppercase">{hit.domain}</p>
+        <p className="card-title">{hit.name} <span className="card-year">{hit.year}</span></p>
+
+        <div className="card-price" hit={hit}>€ {hit.price}</div>
         <div className="card-rating">Rating: {hit.quality}</div>
-        <div className="card-type">Type: {hit.type}</div>
     </div>
   </div>
 );
@@ -76,6 +78,26 @@ const Hit = ({ hit }) => (
 const Content = () => (
     <main className="main">
       <div className="container">
+
+      <HitsPerPage
+            className="container-option"
+            items={[
+              {
+                label: '12 hits per page',
+                value: 12,
+              },
+              {
+                label: '18 hits per page',
+                value: 18,
+              },
+              {
+                label: '24 hits per page',
+                value: 24,
+              },
+            ]}
+            defaultRefinement={12}
+          />
+
         <Hits hitComponent = {Hit} />
       </div>
 
