@@ -1,3 +1,6 @@
+## Project Link
+I have deployed the project to [Vercel](https://vindalgolia-38s5v7alq.vercel.app/).
+
 ## Steps
 - [x] Choose a dataset
 - [x] Create an Algolia account
